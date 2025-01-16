@@ -48,6 +48,7 @@ public class UserServices implements IUserServices {
 	@Override
 	public List<User> createUser(User user) throws Exception {
 		validateSaisie(user);
+		// user.setPassword(passwordEncoder.encode(user.getPassword()));
 		userRepository.save(user);
 		return userRepository.findAll();
 	}
@@ -68,8 +69,9 @@ public class UserServices implements IUserServices {
 		User updateuser = findById(id);
 		updateuser.setEmail(user.getEmail());
 		updateuser.setUsername(user.getUsername());
-		updateuser.setPassword(passwordEncoder.encode(user.getPassword()));
-
+		// updateuser.setPassword(passwordEncoder.encode(user.getPassword()));
+		updateuser.setPassword(user.getPassword());
+		updateuser.setIs_connected(user.isIs_connected());
 		return userRepository.save(updateuser);
 	}
 

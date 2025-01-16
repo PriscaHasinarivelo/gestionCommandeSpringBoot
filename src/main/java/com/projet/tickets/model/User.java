@@ -40,6 +40,7 @@ public class User implements Serializable {
 	@Column(name = "pass")
 	@NotNull
 	private String password;
+	private boolean is_connected;
 
 	public User() {
 		super();
@@ -75,6 +76,14 @@ public class User implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public boolean isIs_connected() {
+		return is_connected;
+	}
+
+	public void setIs_connected(boolean is_connected) {
+		this.is_connected = is_connected;
 	}
 
 }
